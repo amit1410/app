@@ -1,0 +1,91 @@
+﻿@model AccountDto.LoginDto
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Apna Karyala</title>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="~/Image/logo2.png">
+	<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="~/Content/font-awesome.min.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="~/Content/style.css">
+
+	
+</head>
+<body class="account-page">
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+		<div class="account-content">
+		
+			<div class="container">
+
+				<!-- Account Logo -->
+				<div class="account-logo">
+					<a href="index.html"><img src="~/Image/logo2.png" alt="Dreamguy's Technologies"></a>
+				</div>
+				<!-- /Account Logo -->
+
+				<div class="account-box">
+					<div class="account-wrapper">
+						<h3 class="account-title">Login</h3>
+						<p class="account-subtitle">Apna Karayala</p>
+
+						<!-- Account Form -->
+						@using (Html.BeginForm("Save", "Login"))
+						{
+					<div class="form-group">
+						@Html.AntiForgeryToken() 
+						@Html.ValidationMessage("LogOnError")
+						<label>User Name</label>
+						@Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "UserName", type = "text", required = "required" })
+					</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col">
+										<label>Password</label>
+									</div>
+									<div class="col-auto">
+										<a class="text-muted" href="forgot-password.html">
+											Forgot password?
+										</a>
+									</div>
+								</div>
+								@Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password", type = "password", required = "required" })
+							</div>
+							<div class="form-group text-center">
+								<button class="btn btn-primary account-btn" type="submit">Login</button>
+							</div>
+
+                        }
+							<!-- /Account Form -->
+
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Main Wrapper -->
+	<!-- jQuery -->
+	<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+	
+	<!-- Bootstrap Core JS -->
+	<script src="~/Scripts/popper.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="~/Scripts/app.js"></script>
+
+</body>
+</html>
